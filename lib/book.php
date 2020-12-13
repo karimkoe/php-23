@@ -17,6 +17,23 @@ class book
     }
 
 
+    public static function getBookById($id) {
+        global $connect;
+        if ($connect->connect_error) {
+            die("Connection failed: " . $connect->connect_error);
+        }
+
+
+        $query = "SELECT * FROM book WHERE id LIKE '$id'";
+
+        $result = $connect->query($query);
+        while ($row = $result->fetch_object()) {
+            return ['id' => $row->id, 'title' => $row->title, 'price' => $row->price, 'stock' => $row->stock];
+        }
+        $connect->close();
+    }
+
+
 
     public static function getAll() {
         global $connect;
@@ -31,7 +48,6 @@ class book
             while ($row = $result->fetch_object()) {
                 return ['id' => $row->id, 'title' => $row->title, 'price' => $row->price, 'stock' => $row->stock];
             }
-        $connect->close();
     }
 
 

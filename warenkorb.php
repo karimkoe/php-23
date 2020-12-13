@@ -16,6 +16,46 @@
     <div class="container">
         <h1>Einkaufswagen</h1>
     </div>
+
+    <?php
+    require_once "./lib/book.php";
+    $booklist = [book::getBookById(3)];
+
+    function addToCookie() {
+
+        setcookie("Cart", $_GET["stock"], time() + (86400 * 30), "/");
+
+    }
+
+
+
+
+
+
+
+    foreach ($booklist as $item)
+        echo "<div>
+    <h3>".$item['title']."</h3>
+    <p>€ ".$item['price']."</p>
+    <form action='index.php' method='POST'>
+    <div class='container end'>
+  <select name='stock' class='form-control' id='sel1' style='margin-left: 350px;'>
+    "; for ($i = 1; $i <= $item['stock']; $i++) {
+        echo "<option>".$i."</option>";
+    }
+    echo "
+     </select>
+     
+     <button onclick='' class='btn btn-light'>hinzufügen</button>
+     </form>
+     </div>
+        </div>"
+
+    ?>
+
+
+
+
 </div>
 </body>
 </html>
