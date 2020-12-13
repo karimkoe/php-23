@@ -1,0 +1,40 @@
+body {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.container {
+    margin: auto;
+    min-width: 500px;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.center {
+    margin: auto;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+}
+
+.end {
+    margin-left: auto;
+    justify-content: end;
+}
+
+select {
+    width: 56px !important;
+}
+
+h1 {
+    margin: 0px;
+}
+
+
+
